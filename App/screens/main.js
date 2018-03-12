@@ -21,15 +21,24 @@ class App extends Component {
       return (
         <View>
           <Text>Awesome Project</Text>
+          <Text>You must be login</Text>
           <Login />
         </View>
       )
     }
-
+      const mapStateToProps = (globalState) => {
+          return {globalState};
+      };
+    console.log('my state: ',mapStateToProps);
+    /** TODO
+     *  stock token somewhere
+     *  use it to do another api call
+     * */
 		// Display greeting with user full name displayed
     return (
       <View>
         <Text>Welcome {fullName}!</Text>
+          <Menu/>
         <Button
           onPress={() => {
             doLogout()
@@ -47,7 +56,8 @@ export const Main = connect(
 	// inject states to props
   (state: States) => ({
     loggedIn: state.user.loggedIn,
-    fullName: state.user.fullName
+    fullName: state.user.fullName,
+    token: state.user.token
 	}),
 	
 	// inject actions to props

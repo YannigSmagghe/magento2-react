@@ -24,7 +24,7 @@ class App extends Component {
 		// init local state
     this.state = {
       username: 'admin',
-      password: 'secret'
+      password: 'admin123'
     }
   }
 
